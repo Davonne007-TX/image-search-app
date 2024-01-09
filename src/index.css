@@ -54,7 +54,7 @@
 
 /* filters section starts */
 
-.filters {
+/* .filters {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -69,7 +69,7 @@
   color: #fff;
   border-radius: 5px;
   cursor: pointer;
-}
+} */
 
 /* filters section ends */
 

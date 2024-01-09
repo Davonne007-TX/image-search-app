@@ -1,5 +1,6 @@
 import { Form } from "react-bootstrap";
 import { useRef } from "react";
+import Filters from "./Filters";
 
 export default function SearchBar() {
   const searchInput = useRef(null);
@@ -23,6 +24,7 @@ export default function SearchBar() {
           />
         </Form>
       </div>
+      <Filters searchInput={searchInput} />
     </div>
   );
 }
