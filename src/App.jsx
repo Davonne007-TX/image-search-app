@@ -1,12 +1,7 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+import React from "react";
 import "./App.css";
+import SearchBar from "./components/SearchBar";
 
-function App() {
-  const [count, setCount] = useState(0);
-
-  return <h1 className="text-pink-400">lets go!</h1>;
+export default function App() {
+  return <SearchBar />;
 }
-
-export default App;
