@@ -54,13 +54,13 @@ export default function SearchBar() {
       <Filters searchInput={searchInput} fetchImages={fetchImages} />
 
       <div className="flex justify-center items-center">
-        <div className="grid mt-8 gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 mb-10">
+        <div className="grid mt-8 gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 mb-10">
           {images.map((image) => (
             <img
               key={image.id}
               src={image.urls.small}
               alt={images.alt_description}
-              className="w-48 h-48 rounded-lg transition-transform hover:transform hover:-translate-y-3"
+              className="w-52 h-52 rounded-lg transition-transform hover:transform hover:-translate-y-3"
             />
           ))}
         </div>
