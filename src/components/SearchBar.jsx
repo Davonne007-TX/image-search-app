@@ -38,13 +38,15 @@ export default function SearchBar() {
 
   return (
     <div className="mt-8">
-      <h1 className="mb-10 text-2xl font-serif text-center">Image Search</h1>
+      <h1 className="mb-10 text-4xl font-serif text-center font-lemon">
+        Image Search
+      </h1>
       <div className="flex justify-center items-center">
         <Form onSubmit={handleSearch}>
           <Form.Control
             type="search"
-            placeholder="Search For"
-            className="w-96 outline-double"
+            placeholder="Type to start searching..."
+            className="w-96 outline-double font-lemon"
             ref={searchInput}
           />
         </Form>
