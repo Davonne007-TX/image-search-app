@@ -37,7 +37,7 @@ export default function SearchBar() {
   };
 
   return (
-    <div className="flex flex-col">
+    <div className="mt-8">
       <h1 className="mb-10 text-2xl font-serif text-center">Image Search</h1>
       <div className="flex justify-center items-center">
         <Form onSubmit={handleSearch}>
@@ -51,15 +51,17 @@ export default function SearchBar() {
       </div>
       <Filters searchInput={searchInput} fetchImages={fetchImages} />
 
-      <div className="images">
-        {images.map((image) => (
-          <img
-            key={image.id}
-            src={image.urls.small}
-            alt={images.alt_description}
-            className="image"
-          />
-        ))}
+      <div className="flex justify-center items-center">
+        <div className="grid mt-8 gap-4 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 mb-10">
+          {images.map((image) => (
+            <img
+              key={image.id}
+              src={image.urls.small}
+              alt={images.alt_description}
+              className="w-48 h-48 rounded-lg transition-transform hover:transform hover:-translate-y-3"
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

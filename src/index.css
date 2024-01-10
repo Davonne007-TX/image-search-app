@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+/* :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -10,17 +10,17 @@
   --default-margin: 1rem;
   --medium-margin: 3rem;
   --larger-margin: 5rem;
-}
+} */
 
-* {
+/* * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
+} */
 
 /* common css starts */
 
-.buttons {
+/* .buttons {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,7 +36,7 @@
   box-shadow: none;
   outline: none;
   border: none;
-}
+} */
 
 .error-msg {
   color: #ff0000;
@@ -74,7 +74,7 @@
 /* filters section ends */
 
 /* images section starts */
-
+/* 
 .images {
   margin-top: var(--medium-margin);
   display: grid;
@@ -92,6 +92,8 @@
   margin-left: 2rem;
   border-radius: 10px;
   transition: transform 0.5s;
+  justify-self: center;
+  align-self: center;
 }
 
 .images .image:hover {
@@ -100,8 +102,8 @@
 
 /* images section ends */
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
+/* Responsive adjustments  */
+/* @media (max-width: 768px) {
   .images {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -117,4 +119,4 @@
   .images {
     grid-template-columns: 1fr;
   }
-}
+} */
