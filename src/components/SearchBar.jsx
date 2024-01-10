@@ -1,5 +1,6 @@
 import axios from "axios";
 import { Form } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import { useRef, useState } from "react";
 import Filters from "./Filters";
 
@@ -9,6 +10,7 @@ const IMAGES_PER_PAGE = 20;
 export default function SearchBar() {
   const searchInput = useRef(null);
   const [images, setImages] = useState([]);
+  const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
 
   //api
@@ -17,13 +19,13 @@ export default function SearchBar() {
       const { data } = await axios.get(
         `${API_URL}?query=${
           searchInput.current.value
-        }&page=1&per_page=${IMAGES_PER_PAGE}&client_id=${
+        }&page=${page}&per_page=${IMAGES_PER_PAGE}&client_id=${
           import.meta.env.VITE_API_KEY
         }`
       );
       console.log("Data:", data);
       setImages(data.results);
-      setTotalPages(data.total_Pages);
+      setTotalPages(data.total_pages);
     } catch (error) {
       console.error("Error", error);
     }
@@ -64,6 +66,25 @@ export default function SearchBar() {
             />
           ))}
         </div>
+      </div>
+
+      <div className="flex justify-center items-center gap-5 mb-5">
+        {page > 1 && (
+          <Button
+            onClick={() => setPage(page - 1)}
+            className="bg-black font-lemon text-white p-2 rounded cursor-pointer border-black"
+          >
+            Previous
+          </Button>
+        )}
+        {page < totalPages && (
+          <Button
+            onClick={() => setPage(page + 1)}
+            className="bg-black font-lemon text-white p-2 rounded cursor-pointer border-black"
+          >
+            Next
+          </Button>
+        )}
       </div>
     </div>
   );
