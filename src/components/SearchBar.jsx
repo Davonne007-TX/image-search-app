@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useCallback } from "react";
 import Filters from "./Filters";
 
 const API_URL = "https://api.unsplash.com/search/photos";
@@ -13,12 +13,7 @@ export default function SearchBar() {
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
 
-  useEffect(() => {
-    fetchImages();
-  }, [page]);
-
-  //api
-  const fetchImages = async () => {
+  const fetchImages = useCallback(async () => {
     try {
       const { data } = await axios.get(
         `${API_URL}?query=${
@@ -27,27 +22,29 @@ export default function SearchBar() {
           import.meta.env.VITE_API_KEY
         }`
       );
-      console.log("Data:", data);
+      console.log("data", data);
       setImages(data.results);
       setTotalPages(data.total_pages);
     } catch (error) {
-      console.error("Error", error);
+      console.log(error);
     }
+  }, [page]);
+
+  useEffect(() => {
+    fetchImages();
+  }, [fetchImages, page]);
+
+  //reset search
+  const resetSearch = () => {
+    setPage(1);
+    fetchImages();
   };
 
   //handle search
   const handleSearch = (e) => {
     e.preventDefault();
     console.log(searchInput.current.value);
-    fetchImages();
-    setPage(1);
-  };
-
-  //handle selection
-  const handleSelection = (selection) => {
-    searchInput.current.value = selection;
-    fetchImages();
-    setPage(1);
+    resetSearch();
   };
 
   return (
