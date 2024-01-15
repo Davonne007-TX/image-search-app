@@ -52,9 +52,7 @@ export default function SearchBar() {
 
   return (
     <div className="mt-8">
-      <h1 className="mb-10 text-4xl font-serif text-center font-ops">
-        Image Search
-      </h1>
+      <h1 className="mb-10 text-6xl text-center font-ops">Image Search</h1>
       <div className="flex justify-center items-center">
         <Form onSubmit={handleSearch}>
           <Form.Control
@@ -84,7 +82,7 @@ export default function SearchBar() {
         {page > 1 && (
           <Button
             onClick={() => setPage(page - 1)}
-            className="bg-black font-lemon text-white p-2 rounded cursor-pointer border-black"
+            className="bg-black font-serif text-pink-500 p-2 text-xl rounded cursor-pointer border-black hover:text-white"
           >
             Previous
           </Button>
@@ -92,7 +90,7 @@ export default function SearchBar() {
         {page < totalPages && (
           <Button
             onClick={() => setPage(page + 1)}
-            className="bg-black font-lemon text-white p-2 rounded cursor-pointer border-black"
+            className="bg-black font-serif text-pink-500 text-xl p-2 rounded cursor-pointer"
           >
             Next
           </Button>
