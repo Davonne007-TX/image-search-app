@@ -26,6 +26,7 @@ export default function SearchBar() {
         console.log("data", data);
         setImages(data.results);
         setTotalPages(data.total_pages);
+        // console.log(page); //trying to console log the page number
       }
     } catch (error) {
       console.log(error);
@@ -34,11 +35,11 @@ export default function SearchBar() {
 
   useEffect(() => {
     fetchImages();
-  }, [fetchImages, page]);
+  }, [fetchImages]);
 
   //reset search
   const resetSearch = () => {
-    setPage(1);
+    setPage(1); //in progress
     fetchImages();
   };
 
