@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Form } from "react-bootstrap";
 import { Button } from "react-bootstrap";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Filters from "./Filters";
 
 const API_URL = "https://api.unsplash.com/search/photos";
@@ -12,6 +12,10 @@ export default function SearchBar() {
   const [images, setImages] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
+
+  useEffect(() => {
+    fetchImages();
+  }, [page]);
 
   //api
   const fetchImages = async () => {
@@ -36,6 +40,14 @@ export default function SearchBar() {
     e.preventDefault();
     console.log(searchInput.current.value);
     fetchImages();
+    setPage(1);
+  };
+
+  //handle selection
+  const handleSelection = (selection) => {
+    searchInput.current.value = selection;
+    fetchImages();
+    setPage(1);
   };
 
   return (
