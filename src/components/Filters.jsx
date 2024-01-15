@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Filters({ searchInput, fetchImages }) {
   const handleSelection = (selection) => {
     searchInput.current.value = selection;

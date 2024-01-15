@@ -82,7 +82,7 @@ export default function SearchBar() {
         {page > 1 && (
           <Button
             onClick={() => setPage(page - 1)}
-            className="bg-black font-serif text-pink-500 p-2 text-xl rounded cursor-pointer border-black hover:text-white"
+            className="bg-black text-xl p-2 rounded cursor-pointer border-black hover:text-pink-400"
           >
             Previous
           </Button>
@@ -90,7 +90,7 @@ export default function SearchBar() {
         {page < totalPages && (
           <Button
             onClick={() => setPage(page + 1)}
-            className="bg-black font-serif text-pink-500 text-xl p-2 rounded cursor-pointer"
+            className="bg-black p-2 text-xl rounded cursor-pointer hover:text-pink-400"
           >
             Next
           </Button>
