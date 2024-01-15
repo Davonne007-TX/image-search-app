@@ -52,7 +52,7 @@ export default function SearchBar() {
 
   return (
     <div className="mt-8">
-      <h1 className="mb-10 text-4xl font-serif text-center font-lemon">
+      <h1 className="mb-10 text-4xl font-serif text-center font-ops">
         Image Search
       </h1>
       <div className="flex justify-center items-center">

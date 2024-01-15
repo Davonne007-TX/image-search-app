@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         lemon: "'Lemon', serif",
+        ops: "'Black Ops One', system-ui",
       },
     },
   },
