@@ -7,23 +7,23 @@ export default function Filters({ searchInput, fetchImages }) {
   return (
     <div className="flex flex-row flex-wrap justify-center items-center mt-5 gap-10 text-xl bg-black p-2 text-white cursor-pointer font-serif">
       <div
-        onClick={() => handleSelection("laptops")}
+        onClick={() => handleSelection("programming")}
         className="hover:bg-pink-700 transition-colors duration-300 px-2 py-1 rounded-full"
       >
-        Laptops
+        Programming
       </div>
 
       <div
-        onClick={() => handleSelection("storms")}
+        onClick={() => handleSelection("robots")}
         className="hover:bg-pink-600 transition-colors duration-300 px-2 py-1 rounded-full"
       >
-        Storms
+        Robots
       </div>
       <div
-        onClick={() => handleSelection("Nature")}
+        onClick={() => handleSelection("storms")}
         className="hover:bg-pink-700 transition-colors duration-300 px-2 py-1 rounded-full"
       >
-        Nature
+        Storms
       </div>
 
       <div
@@ -33,16 +33,16 @@ export default function Filters({ searchInput, fetchImages }) {
         Space
       </div>
       <div
-        onClick={() => handleSelection("dogs")}
+        onClick={() => handleSelection("ai")}
         className="hover:bg-pink-700 transition-colors duration-300 px-2 py-1 rounded-full"
       >
-        Dogs
+        AI
       </div>
       <div
-        onClick={() => handleSelection("shoes")}
+        onClick={() => handleSelection("nature")}
         className="hover:bg-pink-700 transition-colors duration-300 px-2 py-1 rounded-full"
       >
-        Shoes
+        Nature
       </div>
     </div>
   );
