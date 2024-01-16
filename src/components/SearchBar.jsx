@@ -70,9 +70,13 @@ export default function SearchBar() {
 
       <div className="flex justify-center items-center">
         {loading && (
-          <p className="flex text-2xl lg:text-7xl justify-center items-center mt-40 font-mono">
+          <div className="flex text-3xl flex-col lg:text-5xl justify-center items-center mt-20 font-mono">
             Start Searching...
-          </p>
+            <img
+              src="/images/magnifyGlass.jpg"
+              className="max-w-2xl mt-10 rounded"
+            />
+          </div>
         )}
         {!loading && (
           <div className="grid mt-8 gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 mb-10">
