@@ -12,10 +12,12 @@ export default function SearchBar() {
   const [images, setImages] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   const fetchImages = useCallback(async () => {
     try {
       if (searchInput.current.value) {
+        setLoading(true);
         const { data } = await axios.get(
           `${API_URL}?query=${
             searchInput.current.value
@@ -26,6 +28,7 @@ export default function SearchBar() {
         console.log("data", data);
         setImages(data.results);
         setTotalPages(data.total_pages);
+        setLoading(false);
         // console.log(page); //trying to console log the page number
       }
     } catch (error) {
@@ -51,14 +54,14 @@ export default function SearchBar() {
   };
 
   return (
-    <div className="mt-8">
+    <div className="mt-8 flex flex-col">
       <h1 className="mb-10 text-6xl text-center font-ops">Image Search</h1>
       <div className="flex justify-center items-center">
         <Form onSubmit={handleSearch}>
           <Form.Control
             type="search"
             placeholder="Type to start searching..."
-            className="w-96 outline-double font-lemon"
+            className="w-80 outline-double font-lemon max-w-sm"
             ref={searchInput}
           />
         </Form>
@@ -66,16 +69,23 @@ export default function SearchBar() {
       <Filters searchInput={searchInput} fetchImages={fetchImages} />
 
       <div className="flex justify-center items-center">
-        <div className="grid mt-8 gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 mb-10">
-          {images.map((image) => (
-            <img
-              key={image.id}
-              src={image.urls.small}
-              alt={images.alt_description}
-              className="w-52 h-52 rounded-lg transition-transform hover:transform hover:-translate-y-3"
-            />
-          ))}
-        </div>
+        {loading && (
+          <p className="flex text-2xl lg:text-7xl justify-center items-center mt-40 font-mono">
+            Start Searching...
+          </p>
+        )}
+        {!loading && (
+          <div className="grid mt-8 gap-8 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 mb-10">
+            {images.map((image) => (
+              <img
+                key={image.id}
+                src={image.urls.small}
+                alt={images.alt_description}
+                className="w-52 h-52 rounded-lg transition-transform hover:transform hover:-translate-y-3"
+              />
+            ))}
+          </div>
+        )}
       </div>
 
       <div className="flex justify-center items-center gap-5 mb-5">

@@ -7,22 +7,36 @@ export default function Filters({ searchInput, fetchImages }) {
   return (
     <div className="flex flex-row flex-wrap justify-center items-center mt-5 gap-10 text-xl bg-black p-2 text-white cursor-pointer font-serif">
       <div
-        onClick={() => handleSelection("nature")}
+        onClick={() => handleSelection("computers")}
+        className="hover:bg-pink-700 transition-colors duration-300 px-2 py-1 rounded-full"
+      >
+        Computers
+      </div>
+
+      <div
+        onClick={() => handleSelection("storms")}
         className="hover:bg-pink-600 transition-colors duration-300 px-2 py-1 rounded-full"
+      >
+        Storms
+      </div>
+      <div
+        onClick={() => handleSelection("Nature")}
+        className="hover:bg-pink-700 transition-colors duration-300 px-2 py-1 rounded-full"
       >
         Nature
       </div>
+
       <div
-        onClick={() => handleSelection("birds")}
+        onClick={() => handleSelection("Space")}
         className="hover:bg-pink-700 transition-colors duration-300 px-2 py-1 rounded-full"
       >
-        Birds
+        Space
       </div>
       <div
-        onClick={() => handleSelection("cats")}
+        onClick={() => handleSelection("dogs")}
         className="hover:bg-pink-700 transition-colors duration-300 px-2 py-1 rounded-full"
       >
-        Cats
+        Dogs
       </div>
       <div
         onClick={() => handleSelection("shoes")}
