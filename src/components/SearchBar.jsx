@@ -81,7 +81,7 @@ export default function SearchBar() {
             Start Searching...
             <img
               src="/images/magnifyGlass.jpg"
-              className="max-w-2xl mt-10 rounded"
+              className="max-w-sn lg:max-w-2xl mt-10 rounded"
             />
           </div>
         )}
