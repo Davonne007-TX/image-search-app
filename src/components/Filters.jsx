@@ -7,10 +7,10 @@ export default function Filters({ searchInput, fetchImages }) {
   return (
     <div className="flex flex-row flex-wrap justify-center items-center mt-5 gap-10 text-xl bg-black p-2 text-white cursor-pointer font-serif">
       <div
-        onClick={() => handleSelection("computers")}
+        onClick={() => handleSelection("laptops")}
         className="hover:bg-pink-700 transition-colors duration-300 px-2 py-1 rounded-full"
       >
-        Computers
+        Laptops
       </div>
 
       <div

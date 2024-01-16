@@ -53,15 +53,22 @@ export default function SearchBar() {
     resetSearch();
   };
 
+  //back to start search
+  const startSearching = () => {
+    resetSearch();
+  };
+
   return (
     <div className="mt-8 flex flex-col">
-      <h1 className="mb-10 text-6xl text-center font-ops">Image Search</h1>
+      <a href="/" onClick={startSearching}>
+        <h1 className="mb-10 text-6xl text-center font-ops">Image Search</h1>
+      </a>
       <div className="flex justify-center items-center">
         <Form onSubmit={handleSearch}>
           <Form.Control
             type="search"
             placeholder="Type to start searching..."
-            className="w-80 outline-double font-lemon max-w-sm"
+            className="w-80 outline-double font-lemon max-w-sm focus:ring-4 focus:ring-pink-400"
             ref={searchInput}
           />
         </Form>
